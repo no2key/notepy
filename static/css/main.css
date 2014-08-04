@@ -1,0 +1,32 @@
+#wrap{
+    min-height: 500px;
+}
+footer{
+    margin: 2px;
+    height: 30px;
+}
+.main-page h1{
+    font-size: 28px;
+}
+.post h1{
+    font-size: 24px;
+}
+.post p{
+    text-indent: 2em;
+}
+.search{
+    transition:width 1s;
+    -moz-transition:width 2s; /* Firefox 4 */
+    -webkit-transition:width 2s; /* Safari and Chrome */
+    -o-transition:width 2s; /* Opera */
+}
+.search:hover{
+    width: 350px;
+}
+a:hover{
+    text-decoration: none;
+    color: #c922c2;
+}
+#wrap a:visited{
+    color: #a47e3c;
+}

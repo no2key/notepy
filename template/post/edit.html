@@ -1,0 +1,33 @@
+{% extends "../base.html" %}
+{% block main %}
+<div class="post-update">
+    <h3>文章编辑</h3>
+    <hr>
+    <form action="/post/update" method="post">
+        <input type="hidden" name="id" value="{{ post.id }}">
+        <div class="form-group">
+            <label for="title">标题</label>
+            <input type="text" name="title" id="title" class="form-control" value="{{ post.title }}" autofocus>
+            <span class="help-block" id="title-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="content">正文</label>
+            <textarea name="content" id="content" class="form-control" rows="20" required="required">{{ post.content }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags">标签</label>
+            <input type="text" name="tags" id="tags" list="tag_list" class="form-control" value="
+                {% for t in post.tags %}
+                    {{ t.tag }},
+                {% end %}
+            ">
+            <span class="help-block"><p class="text-warning">标签之间用','分割，每个标签不能超过25个字符</p></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">重新发布</button>
+    </form>
+</div>
+{% end %}
+{% block side %}
+    {% module Tag(side['tags']) %}
+    {% module RandomPost(side['random_post']) %}
+{% end %}

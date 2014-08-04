@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+    <div class="panel-heading">近期文章</div>
+    <ul class="list-group">
+        {% for p in post %}
+            <a href="/post/id/{{ p.id }}" class="list-group-item">
+                <p class="list-group-item-text text-primary"><b>{{ p.title }}</b></p>
+            </a>
+        {% end %}
+    </ul>
+</div>

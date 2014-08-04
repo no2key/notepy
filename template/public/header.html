@@ -1,0 +1,24 @@
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+    <h1 class="container">
+        <div class="col-md-5">
+            <a href="/">{{ handler.settings['app']['name'] }}</a>
+            <small>{{ handler.settings['app']['title'] }}</small>
+        </div>
+        <form class="search col-md-3" action="/post/search" method="get">
+            <input type="search" name="q" placeholder="Search" class="form-control" role="search">
+        </form>
+        {% if current_user %}
+        <small class="col-md-1">
+            <a href="/post/add" title="撰写新文章"><span class="glyphicon glyphicon-pencil"></span></a>
+        </small>
+        {% end %}
+        <small class="pull-right">
+            <a href="mailto:{{ handler.settings['app']['email'] }}" title="联系我"><span class="glyphicon glyphicon-envelope"></span></a>&nbsp&nbsp
+            {% if current_user %}
+            <a href="/logout" title="登出"><span class="glyphicon glyphicon-off"></span></a>
+            {% else %}
+            <a href="/login" title="登陆"><span class="glyphicon glyphicon-user"></span></a>
+            {% end %}
+        </small>
+    </h1>
+</div>

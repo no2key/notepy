@@ -1,0 +1,34 @@
+{% extends "../base.html" %}
+{% block main %}
+<div class="post-add">
+    <h3>撰写新文章</h3>
+    <hr>
+    <form action="/post/add" method="post">
+        {% raw xsrf_form_html() %}
+        <div class="form-group">
+            <label for="title">标题</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="输入标题" required="required" autofocus>
+            <span class="help-block" id="title-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="content">正文</label>
+            <textarea name="content" id="content" class="form-control" rows="20" placeholder="输入内容，支持markdown语法" required="required"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags">标签</label>
+            <input type="text" name="tags" id="tags" list="tag_list" class="form-control" placeholder="输入标签，多个标签之间用','分隔,标签长度不能大于25个字符">
+            <datalist id="tag_list">
+                {% for tag in tags %}
+                    <option label="{{ tag.tag }}" value="{{ tag.tag }}">
+                {% end %}
+            </datalist>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">发布</button>
+    </form>
+</div>
+{% end %}
+{% block side %}
+    {% module Tag(side['tags']) %}
+    {% module RandomPost(side['random_post']) %}
+{% end %}
+

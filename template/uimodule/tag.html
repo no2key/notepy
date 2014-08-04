@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">标签云</h3>
+    </div>
+    <div class="panel-body">
+        {% for tag in tags %}
+            <a href="/tag/{{ tag.tag }}">{{ tag.tag }}<span class="badge">{{ tag.count }}</span></a>&nbsp&nbsp
+        {% end %}
+    </div>
+</div>

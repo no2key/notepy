@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+    <div class="panel-heading">随机阅读</div>
+    <div class="list-group">
+        {% for p in post %}
+        <a href="/post/id/{{ p.id }}" class="list-group-item">
+            <p class="list-group-item-text text-primary"><b>{{ p.title }}</b></p>
+            <p class="list-group-item-text">{% raw handler.markdown(p.content[0:50]) %}……</p>
+        </a>
+        {% end %}
+    </div>
+</div>

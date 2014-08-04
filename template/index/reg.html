@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="{{ static_url('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ static_url('css/login.css') }}" rel="stylesheet" media="screen">
+</head>
+    <body>
+        <div class="container">
+            <form class="form-signin" action="/reg" method="post">
+                {% raw xsrf_form_html() %}
+                <h2 class="form-signin-heading">注册</h2>
+                <input type="text" name="username" class="form-control" placeholder="用户名" required="required" autofocus>
+                <input type="email" name="email" class="form-control" placeholder="邮箱" required="required">
+                <input type="password" name="password" class="form-control" placeholder="密码" required="required">
+                <input type="password" name="re_password" class="form-control" placeholder="确认密码" required="required">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+            </form>
+        </div>
+    </body>
+</html>
